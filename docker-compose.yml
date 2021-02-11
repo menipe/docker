@@ -25,8 +25,8 @@ services:
       MOODLE_DATABASE_PASSWORD: moodlePassword
       ALLOW_EMPTY_PASSWORD: "no"
     ports:
-      - '80:80'
-      - '443:443'
+      - '80:8080'
+      - '443:8443'
     volumes:
       - $HOME/volumes/moodle:/bitnami'
     depends_on:
