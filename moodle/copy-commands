@@ -1,0 +1,2 @@
+curl -sSL https://raw.githubusercontent.com/menipe/docker/main/moodle/setup.sh > setup.sh
+chmod +x setup.sh
