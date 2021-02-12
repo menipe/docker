@@ -17,55 +17,24 @@ services:
       - "80:8080"
       - "443:8443"
     environment:
-      # MariaDB configuration
       - MOODLE_DATABASE_HOST=mariadb
       - MOODLE_DATABASE_PORT_NUMBER=3306
-      - MOODLE_DATABASE_NAME=moodle_mariadb
       - MOODLE_DATABASE_USER=${MOODLE_DATABASE_USER}
+      - MOODLE_DATABASE_NAME=moodle_mariadb
       - MOODLE_DATABASE_PASSWORD=${MOODLE_DATABASE_PASSWORD}
       - MOODLE_USERNAME=${MOODLE_USER}
       - MOODLE_PASSWORD=${MOODLE_PASSWORD}
       - MOODLE_SITE_NAME=${MOODLE_SITE_NAME}
       - ALLOW_EMPTY_PASSWORD=yes
-      # PostgreSQL configuration
-      #- MOODLE_DATABASE_HOST=postgresdb
-      #- MOODLE_DATABASE_PORT_NUMBER=5432
-      #- MOODLE_DATABASE_NAME=moodle_postgresdb
-
     volumes:
       - "moodle_data:/moodle/moodle"
       - "moodledata_data:/moodle/moodledata"
     depends_on:
       - mariadb
-      - postgresdb
-  postgresdb:
-    image: "docker.io/bitnami/postgresql:latest"
-    ports:
-      - "5432"
-    restart: always
-    environment:
-      POSTGRESQL_USER: ${MOODLE_DATABASE_USER}
-      POSTGRESQL_PASSWORD: ${MOODLE_DATABASE_PASSWORD}
-      POSTGRESQL_DATABASE: moodle_postgresdb
-    volumes:
-      - "postgresdb_data:/moodle/postgresdb"
-  rabbitmq:
-    image: "docker.io/bitnami/rabbitmq:3.8-debian-10"
-    ports:
-      - "4369:4369"
-      - "5672:5672"
-      - "25672:25672"
-      - "15672:15672"
-    volumes:
-      - "rabbitmq_data:/moodle"
 volumes:
   mariadb_data:
     driver: local
   moodle_data:
     driver: local
   moodledata_data:
-    driver: local
-  postgresdb_data:
-    driver: local
-  rabbitmq_data:
     driver: local
