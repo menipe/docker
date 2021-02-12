@@ -1,3 +1,3 @@
-# docker-moodle
+# docker
 
-Scripts to setup Moodle environment in docker
+Scripts to setup docker containers and images
