@@ -1,11 +1,14 @@
-# docker
+# Docker
 
 Scripts to setup docker containers and images
 
-Boinc
+## Boinc
 - Setup BOINC
-- Connect to Primegrid
+- Connect to Primegrid - todo
 
-Moodle
+## Moodle
 - Setup Moodle
 - Setup MARIADB
+- Setup PostGRESQL - todo
+- Setup RabbitMQ - todo
+- Install MORPH - todo
