@@ -2,6 +2,8 @@ version: "2"
 services:
   boinc:
     image: boinc/client
+    env_file:
+      - boinc.env
     container_name: boinc
     restart: always
     network_mode: host
@@ -9,5 +11,6 @@ services:
     volumes:
       - /opt/appdata/boinc:/var/lib/boinc
     environment:
-      - BOINC_GUI_RPC_PASSWORD=1eddc62bcc42cb664458597267c7f409
+      - BOINC_GUI_RPC_PASSWORD=Pr1m3sR00t1
       - BOINC_CMD_LINE_OPTIONS=--allow_remote_gui_rpc
+    #command: boinccmd --passwd Pr1m3sR00t1 --project_attach https://www.primegrid.com/ 1eddc62bcc42cb664458597267c7f409
